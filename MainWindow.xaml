@@ -5,8 +5,106 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <Grid>
+        Title="Projekt z grafów" MinHeight="768" MinWidth="1024">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#fff" />
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
+    <Grid Background="#e5e5e5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Menu 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="8"
+            Panel.ZIndex="2"
+            Background="#fff"
+         >
+            <MenuItem Header="_Graf ▾">
+                <MenuItem Header="_Nowy graf"/>
+                <MenuItem Header="_Zapisz"/>
+                <Separator></Separator>
+                <MenuItem Header="_Importuj graf"/>
+                <MenuItem Header="_Eksportuj graf"/>
+            </MenuItem>
+        </Menu>
+
+        <Rectangle 
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="8"
+            Fill="#ededed"
+        />
+
+        <Button x:Name="TextModeToggle" 
+            Grid.Row="1" 
+            Grid.Column="2" 
+            Margin="0,10,0,10"
+            Background="#5E807F"
+            Foreground="White"
+            Content="Tryb tekstowy"
+            FontSize="16" 
+            FontFamily="Trebuchet MS"
+            BorderThickness="0,0,0,0"
+            FontWeight="SemiBold"
+         />
+        
+        <Button x:Name="GraphicsModeToggle" 
+            Grid.Row="1"
+            Grid.Column="4"
+            Margin="0,10,0,10"
+            Background="#159072"
+            Foreground="White"
+            Content="Tryb graficzny"
+            FontSize="16"
+            FontStretch="Expanded" 
+            FontFamily="Trebuchet MS" 
+            FontWeight="SemiBold" 
+            BorderThickness="0,0,0,0" 
+            ForceCursor="True"
+        />
+
+        <Button 
+            x:Name="AddMenuToggle"
+            Grid.Row="3"
+            Grid.Column="6"
+            Background="#e5e5e5"
+            Panel.ZIndex="2"
+         >
+            <Image Source="/Assets/add-circle.png"/>
+        </Button>
     </Grid>
 </Window>
