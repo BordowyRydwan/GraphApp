@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphApp"
+        xmlns:views="clr-namespace:GraphApp.Views"
+        xmlns:viewmodels="clr-namespace:GraphApp.ViewModels"
         mc:Ignorable="d"
-        Title="Projekt z grafów" MinHeight="768" MinWidth="1024">
+        Title="Projekt z grafów" 
+        MinHeight="768" 
+        MinWidth="1024">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -19,33 +23,44 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#fff" />
+                    <Setter Property="Background" Value="#000" />
                     <Setter Property="Cursor" Value="Hand" />
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <DataTemplate 
+            x:Name="GraphicalViewModel"
+            DataType="{x:Type viewmodels:GraphicalViewModel}"
+        >
+            <views:GraphicalModeView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate 
+            x:Name="TextViewModel"
+            DataType="{x:Type viewmodels:TextViewModel}"
+        >
+            <views:TextModeView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate 
+            x:Name="HelpViewModel"
+            DataType="{x:Type viewmodels:HelpViewModel}"
+        >
+            <views:HelpView DataContext="{Binding}" />
+        </DataTemplate>
     </Window.Resources>
 
-    <Grid Background="#e5e5e5">
+    <Grid Background="#F7F7F7">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="70" />
-            <RowDefinition Height="70" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <Menu 
@@ -63,7 +78,7 @@
                 <MenuItem Header="_Eksportuj graf"/>
             </MenuItem>
             <MenuItem Header="_Ustawienia" />
-            <MenuItem Header="_Pomoc" />
+            <MenuItem x:Name="HelpButton" Header="_Pomoc" Click="HelpButton_Click"/>
         </Menu>
 
         <Rectangle 
@@ -75,7 +90,7 @@
 
         <Button x:Name="TextModeToggle" 
             Grid.Row="1" 
-            Grid.Column="2" 
+            Grid.Column="1" 
             Margin="0,10,0,10"
             Background="#5E807F"
             Foreground="White"
@@ -89,7 +104,7 @@
 
         <Button x:Name="GraphicsModeToggle" 
             Grid.Row="1"
-            Grid.Column="4"
+            Grid.Column="3"
             Margin="0,10,0,10"
             Background="#159072"
             Foreground="White"
@@ -103,105 +118,12 @@
             Click="GraphicsModeToggle_Click"
         />
 
-        <Button x:Name="RunAlgorithmButton" 
+        <ContentControl 
+            Content="{Binding}"
             Grid.Row="2"
-            Grid.Column="5"
-            Grid.ColumnSpan="2"
-            Margin="0,10,0,10"
-            Foreground="White"
-            Content="Uruchom"
-            FontSize="16"
-            FontStretch="Expanded" 
-            FontFamily="Trebuchet MS" 
-            FontWeight="SemiBold" 
-            BorderThickness="0,0,0,0" 
-            ForceCursor="True"
-            Height="40"
-            Width="150"
-            VerticalAlignment="Top" 
-            Click="RunAlgorithmButton_Click" 
-            Background="#FF159072" HorizontalContentAlignment="Left" HorizontalAlignment="Right" 
+            Grid.RowSpan="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="8"
         />
-
-        <Button 
-            x:Name="AddMenuToggle"
-            Grid.Row="5"
-            Grid.Column="6"
-            Background="#e5e5e5"
-            Panel.ZIndex="2"
-            Click="AddMenuToggle_Click" HorizontalAlignment="Right"
-         >
-            <Image Source="/Assets/add-circle.png" HorizontalAlignment="Right"/>
-        </Button>
-
-        <Button
-            Grid.Row="3"
-            Grid.Column="5"
-            Grid.ColumnSpan="2" 
-            Background="#F7F7F7" 
-            Margin="0,10,0,0" 
-            Panel.ZIndex="3" 
-            Width="250"
-            HorizontalAlignment="Right" 
-            x:Name="AddEdgeButton"
-            Visibility="Hidden" Click="AddEdgeButton_Click"
-        >
-            <Button.Content>
-                <DockPanel HorizontalAlignment="Left" Width="225">
-                    <Image 
-                        Source="/Assets/add-link.png"
-                        Grid.Column="5"
-                        Width="35"
-                        Height="35" HorizontalAlignment="Left" RenderTransformOrigin="-2.158,0.523" Margin="10,0,30,0"
-                    >
-                    </Image>
-                    <TextBlock 
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        FontStretch="Expanded" 
-                        FontFamily="Trebuchet MS" 
-                        FontWeight="SemiBold" 
-                        ForceCursor="True"
-                    >
-                        Dodaj krawędź
-                    </TextBlock>
-                </DockPanel>
-            </Button.Content>
-        </Button>
-        <Button
-            Grid.Row="4"
-            Grid.Column="5"
-            Grid.ColumnSpan="2"
-            Background="#F7F7F7" 
-            Margin="0,0,0,10"
-            Panel.ZIndex="3" 
-            HorizontalAlignment="Right" 
-            Width="250"
-            x:Name="AddVertexButton"
-            Visibility="Hidden" Click="AddVertexButton_Click"
-        >
-            <Button.Content>
-                <DockPanel Width="225">
-                    <Image 
-                        Source="/Assets/add-circle-outline.png"
-                        Width="35"
-                        Height="35" 
-                        HorizontalAlignment="Left" 
-                        Margin="10,0,30,0"
-                    >
-                    </Image>
-                    <TextBlock 
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        FontStretch="Expanded" 
-                        FontFamily="Trebuchet MS" 
-                        FontWeight="SemiBold" 
-                        ForceCursor="True"
-                    >
-                        Dodaj wierzchołek
-                    </TextBlock>
-                </DockPanel>
-            </Button.Content>
-        </Button>
     </Grid>
 </Window>

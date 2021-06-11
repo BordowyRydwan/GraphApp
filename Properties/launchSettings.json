@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GraphApp": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

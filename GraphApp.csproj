@@ -8,13 +8,18 @@
 
   <ItemGroup>
     <None Remove="Assets\add-circle-outline.png" />
+    <None Remove="Assets\add-circle.jpg" />
     <None Remove="Assets\add-circle.png" />
     <None Remove="Assets\add-link.png" />
+    <None Remove="Views\add-circle.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\add-circle-outline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\add-circle.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\add-circle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
