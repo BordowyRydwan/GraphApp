@@ -56,6 +56,7 @@
             AcceptsReturn="True" Foreground="White"
             FontSize="14"
             AcceptsTab="True"
+            Name="inputBox"
         >
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
@@ -76,6 +77,7 @@
             IsReadOnly="True"
             AcceptsReturn="True" Foreground="White"
             AcceptsTab="True"
+            Name="outputBox"
         >
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
@@ -92,6 +94,7 @@
             FontWeight="Bold"
             Height="40" HorizontalAlignment="Right" 
             Margin="0,0,30,0" Foreground="White" FontFamily="Trebuchet MS" FontSize="16"
+            Click="RunAlgorithmButton_Click" 
         >
             Uruchom
         </Button>
@@ -104,6 +107,7 @@
             FontWeight="Bold"
             Height="40" HorizontalAlignment="Right" 
             Margin="0,0,200,0" Foreground="Black" FontFamily="Trebuchet MS" FontSize="16"
+            Click="ClearButton_Click" 
         >
             Wyczyść
         </Button>
