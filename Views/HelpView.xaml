@@ -80,31 +80,25 @@
                         Jak wpisać macierz sąsiedztwa do grafu?
                     </Paragraph>
                     <Paragraph>
-                        Macierz ma postać 2-wymiarowej tablicy, jakiej zwykle używamy w większości nowoczesnych językach programowania - Pomiędzy znakami [] wpisujemy kolejne wiersze macierzy, dbając o to, aby była on kwadratowa (wymogi definicji macierzy sąsiedztwa)
+                        Wpisujemy ją w takiej postaci, jakbyśmy na kartce wpisali pomiędzy znakami [] w macierzy - wiersze i kolumny od siebie oddzielone spacją, bez przecinków lub innych znaków oddzielających
                     </Paragraph>
                     <Paragraph>
-                        Przykład:
-                    </Paragraph>
-                    <Paragraph Style="{StaticResource ExampleParagraph}" >
-                        [
+                        Przykład obrazujący sposób wpisywania:
                     </Paragraph>
                     <Paragraph Style="{StaticResource ExampleParagraph2}" >
-                        [0, 0, 0, 0, 0],
+                        0 0 0 0 0
                     </Paragraph>
                     <Paragraph Style="{StaticResource ExampleParagraph2}" >
-                        [0, 0, 0, 0, 0],
+                        0 0 0 0 0
                     </Paragraph>
                     <Paragraph Style="{StaticResource ExampleParagraph2}" >
-                        [0, 0, 0, 0, 0],
+                        0 0 0 0 0
                     </Paragraph>
                     <Paragraph Style="{StaticResource ExampleParagraph2}" >
-                        [0, 0, 0, 0, 0],
+                        0 0 0 0 0
                     </Paragraph>
                     <Paragraph Style="{StaticResource ExampleParagraph2}" >
-                        [0, 0, 0, 0, 0]
-                    </Paragraph>
-                    <Paragraph Style="{StaticResource ExampleParagraph}" >
-                        ]
+                        0 0 0 0 0
                     </Paragraph>
                     <Paragraph Style="{StaticResource TextHeader}" >
                         Jak dodać wierzchołek do grafu?

@@ -171,7 +171,7 @@ namespace GraphApp.Views
 
         private void RunAlgorithmButton_Click(object sender, RoutedEventArgs e)
         {
-
+            outputBox.Document.Blocks.Clear();
             string input = new TextRange(inputBox.Document.ContentStart, inputBox.Document.ContentEnd).Text;
 
             var convertedInput = convertStringToArray(input);
@@ -184,7 +184,7 @@ namespace GraphApp.Views
                 foreach (List<string> l in kv.Value)
                 {
                     foreach (string s in l) outputBox.AppendText(s + " ");
-                    outputBox.AppendText("\n");
+                   outputBox.AppendText("\n");
                 }
                 outputBox.AppendText("\n");
             }
