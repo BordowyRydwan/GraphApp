@@ -18,6 +18,14 @@
             <Setter Property="Padding" Value="0,0,100,0"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
+        <Style x:Key="ExampleParagraph" TargetType="{x:Type Paragraph}">
+            <Setter Property="Padding" Value="10,0,100,0"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style x:Key="ExampleParagraph2" TargetType="{x:Type Paragraph}">
+            <Setter Property="Padding" Value="40,0,100,0"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
     </UserControl.Resources>
     
     <Grid Background="#f7f7f7">
@@ -39,13 +47,14 @@
                 FontFamily="Trebuchet MS" 
                 Background="#f7f7f7"
                 IsReadOnly="True"
+                AcceptsTab="True"
             >
                 <FlowDocument>
                     <Paragraph Style="{StaticResource TextHeader}">
                         Wstęp, opis aplikacji
                     </Paragraph>
                     <Paragraph>
-                        Ta aplikacja służy do znajdowania rozcięć w grafie. W planach jest jednak możliwość wyskalowania aplikacji tak, aby można było ilustrować na niej zastosowanie innych algorytmów, takich jak algorytmy Dijkstry, Prima, DFS, BFS, i tak dalej. Ale to już poza zaliczeniem projektu.
+                        Ta aplikacja służy do znajdowania rozcięć w dowolnym spójnym grafie. W planach jest jednak możliwość wyskalowania aplikacji tak, aby można było ilustrować na niej zastosowanie innych algorytmów, takich jak algorytmy Dijkstry, Prima, DFS, BFS, i tak dalej. Ale to już poza zaliczeniem projektu.
                     </Paragraph>
                     <Paragraph>
                         Aplikacja jest jednocześnie projektem zaliczeniowym na przedmiot “Grafy i Sieci” prowadzony przez prof. SGGW Aleksandra Prokopenyę. Autorami projektu są:
@@ -68,22 +77,47 @@
                         </ListItem>
                     </List>
                     <Paragraph Style="{StaticResource TextHeader}" >
+                        Jak wpisać macierz sąsiedztwa do grafu?
+                    </Paragraph>
+                    <Paragraph>
+                        Macierz ma postać 2-wymiarowej tablicy, jakiej zwykle używamy w większości nowoczesnych językach programowania - Pomiędzy znakami [] wpisujemy kolejne wiersze macierzy, dbając o to, aby była on kwadratowa (wymogi definicji macierzy sąsiedztwa)
+                    </Paragraph>
+                    <Paragraph>
+                        Przykład:
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph}" >
+                        [
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph2}" >
+                        [0, 0, 0, 0, 0],
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph2}" >
+                        [0, 0, 0, 0, 0],
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph2}" >
+                        [0, 0, 0, 0, 0],
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph2}" >
+                        [0, 0, 0, 0, 0],
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph2}" >
+                        [0, 0, 0, 0, 0]
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource ExampleParagraph}" >
+                        ]
+                    </Paragraph>
+                    <Paragraph Style="{StaticResource TextHeader}" >
                         Jak dodać wierzchołek do grafu?
                     </Paragraph>
                     <Paragraph>
-                        W trybie graficznym należy kliknąć przycisk “+” znajdujący się w praym dolnym rogu ekranu. Dalej kliknąć “Dodaj wierzchołek”. W trybie tekstowym, algorytm pobiera od razu całą macierz sąsiedztwa - aby dodać wierzchołek, starczy edytować zawartość macierzy.
+                        Należy go dodać do macierzy sąsiedztwa. Algorytm pobiera od razu całą macierz sąsiedztwa z wpisanego tekstu - aby dodać wierzchołek, starczy edytować zawartość macierzy.
                     </Paragraph>
                     <Paragraph Style="{StaticResource TextHeader}" >
-                        Jak połączyć wierzchołki?
+                        Jak uruchomić algorytm?
                     </Paragraph>
                     <Paragraph>
-                        W trybie graficznym należy kliknąć przycisk “+” znajdujący się w praym dolnym rogu ekranu. Dalej kliknąć “Dodaj krawędź”. W trybie tekstowym, algorytm pobiera od razu całą macierz sąsiedztwa - aby dodać wierzchołek, starczy edytować zawartość macierzy.
-                    </Paragraph>
-                    <Paragraph Style="{StaticResource TextHeader}" >
-                        Do czego służy tryb tekstowy? Przecież łatwiej i tak to wyklikać w GUI.
-                    </Paragraph>
-                    <Paragraph>
-                        Tryb tekstowy daje przede wszystkim możliwość szybkiej obsługi poprzez wpisywanie ich tak, jakbyś realnie wpisał je do programu w jakimkolwiek nowoczesnym języku programowania (dwuwymiarowa tablica, itp.). Jeśli nie potrzebujesz tej warstwy wizualnej, albo chcesz na szybko przekleić output do swojego programu, który będzie to procesować dalej - tryb tekstowy jest świetnym pomysłem.
+                        Należy kliknąć przycisk "Uruchom" w prawym górnym rogu okna. W prawej kolumnie tekstowej wyświetlą się wynikowe rozcięcia reprezentowane jako
+                        tablice krawędzi.
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>

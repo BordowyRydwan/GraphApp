@@ -7,6 +7,105 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <Grid Background="#f7f7f7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
 
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            FontWeight="Bold"
+            FontSize="20"
+            FontFamily="Trebuchet MS"
+            Background="#17B890" 
+            Padding="25,17,0,0" 
+            Height="60"
+            VerticalAlignment="Center"
+        >
+            Wejście
+        </TextBlock>
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            FontWeight="Bold"
+            FontSize="20"
+            FontFamily="Trebuchet MS"
+            Background="#17B890" 
+            Padding="40,17,0,0" 
+            Height="60"
+            VerticalAlignment="Center"
+        >
+            Wyjście
+        </TextBlock>
+
+        <RichTextBox
+            Margin="0,0,0,0" 
+            Padding="30,30,30,30" 
+            FontFamily="Trebuchet MS" 
+            Background="#2F3636"
+            Grid.Row="2"
+            Grid.Column="0"
+            IsReadOnly="False"
+            AcceptsReturn="True" Foreground="White"
+            FontSize="14"
+            AcceptsTab="True"
+        >
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
+            
+            
+        </RichTextBox>
+
+        <RichTextBox
+            Margin="0,0,0,0" 
+            Padding="30,30,30,30" 
+            FontFamily="Trebuchet MS" 
+            Background="#4D5555"
+            Grid.Row="2"
+            Grid.Column="1"
+            IsReadOnly="True"
+            AcceptsReturn="True" Foreground="White"
+            AcceptsTab="True"
+        >
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+
+        <Button
+            Background="#159072"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="150"
+            FontWeight="Bold"
+            Height="40" HorizontalAlignment="Right" 
+            Margin="0,0,30,0" Foreground="White" FontFamily="Trebuchet MS" FontSize="16"
+        >
+            Uruchom
+        </Button>
+
+        <Button
+            Background="#FF95CDBF"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="150"
+            FontWeight="Bold"
+            Height="40" HorizontalAlignment="Right" 
+            Margin="0,0,200,0" Foreground="Black" FontFamily="Trebuchet MS" FontSize="16"
+        >
+            Wyczyść
+        </Button>
     </Grid>
 </UserControl>
