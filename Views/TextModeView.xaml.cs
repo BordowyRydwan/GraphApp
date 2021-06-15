@@ -140,6 +140,7 @@ namespace GraphApp.Views
                 {
                     if (tmp[j] == '0') array[i, j] = 0;
                     else if (tmp[j] == '1') array[i, j] = 1;
+                    else array[i, j] = 1;
                 }
             }
 
