@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using GraphApp.ViewModels;
-using GraphApp.UtilClasses;
 
 namespace GraphApp
 {
